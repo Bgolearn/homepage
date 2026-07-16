@@ -1,393 +1,264 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-
-    <title>Bgolearn - Advanced Material Design Optimization</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-    <style>
-
-        body {
-            font-family: 'Roboto', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f9;
-            color: #333;
-        }
-        header {
-            background-color: #0056b3;
-            color: white;
-            padding: 20px;
-            text-align: center;
-        }
-        header h1 {
-            margin: 0;
-            font-size: 2.5rem;
-        }
-        nav {
-            background-color: #333;
-            overflow: hidden;
-        }
-        nav a {
-            float: left;
-            display: block;
-            color: white;
-            text-align: center;
-            padding: 14px 20px;
-            text-decoration: none;
-        }
-        nav a:hover {
-            background-color: #ddd;
-            color: black;
-        }
-        .container {
-            max-width: 1200px;
-            margin: auto;
-            padding: 20px;
-        }
-        .section {
-            margin-bottom: 40px;
-        }
-        .section h2 {
-            color: #0056b3;
-            font-size: 2rem;
-            margin-bottom: 20px;
-        }
-        .section p {
-            font-size: 1.2rem;
-            line-height: 1.6;
-        }
-        .features-list {
-            display: flex;
-            justify-content: space-between;
-            gap: 20px;
-        }
-        .feature {
-            flex: 1;
-            background-color: white;
-            padding: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-            text-align: center;
-        }
-        .feature h3 {
-            color: #0056b3;
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-        }
-        .feature img {
-            width: 100%;
-            max-width: 200px;
-            border-radius: 8px;
-        }
-        footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 20px;
-        }
-        footer a {
-            color: #b8d1f3;
-        }
-        .patents {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-        }
-        .patents img {
-            width: 48%;
-            max-width: 250px;
-            border-radius: 8px;
-        }
-        .author-photo {
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
-        }
-        .author-photo img {
-            width: 150px;
-            border-radius: 8px;
-            margin-right: 20px;
-        }
-        .author-info {
-            font-size: 1.2rem;
-        }
-
-/* 手机端优化样式 */
-    @media only screen and (max-width: 768px) {
-        body {
-            padding: 0;
-        }
-
-        /* 标题缩小 */
-        header h1 {
-            font-size: 1.6rem;
-        }
-
-        /* 导航栏垂直排列 */
-        nav {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        nav a {
-            float: none;
-            width: 100%;
-            text-align: center;
-            padding: 12px;
-            font-size: 1rem;
-        }
-
-        /* 容器填充和边距减少 */
-        .container {
-            padding: 10px;
-        }
-
-        /* 段落和标题字体缩小 */
-        .section h2 {
-            font-size: 1.4rem;
-        }
-
-        .section p {
-            font-size: 1rem;
-        }
-
-        /* 特性部分单列布局 */
-        .features-list {
-            flex-direction: column;
-        }
-
-        .feature {
-            margin-bottom: 20px;
-        }
-
-        .feature img {
-            max-width: 150px;
-            margin: 0 auto;
-        }
-
-        /* 专利图片调整 */
-        .patents img {
-            width: 100%;
-            max-width: 150px;
-            margin: 0 auto;
-        }
-
-        /* 作者信息图片调整 */
-        .author-photo img {
-            max-width: 100px;
-        }
-
-        /* 保证作者信息和图片换行显示 */
-        .author-photo {
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-        }
-
-        .author-info {
-            margin-top: 10px;
-        }
-
-        /* 研究文章链接居中 */
-        #research p {
-            text-align: center;
-        }
-
-        /* 页面整体字体调整 */
-        body {
-            font-size: 14px;
-        }
-    }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Bgolearn — Bayesian optimization tools for materials discovery.">
+  <title>Bgolearn · Bayesian optimization for materials discovery</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root { --ink:#101828; --muted:#667085; --line:#e7eaf0; --paper:#fbfcfe; --blue:#4355d9; --violet:#805ad5; --mint:#a7f3d0; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; color:var(--ink); background:var(--paper); font-family:Manrope,system-ui,sans-serif; line-height:1.6; }
+    a { color:inherit; }
+    .shell { width:min(1160px, calc(100% - 40px)); margin:auto; }
+    .eyebrow { margin:0 0 12px; color:#717fe5; font:500 .73rem/1 "DM Mono",monospace; letter-spacing:.13em; text-transform:uppercase; }
+    .nav { height:76px; display:flex; align-items:center; justify-content:space-between; gap:28px; border-bottom:1px solid #bfcbff2b; }
+    .brand { display:flex; align-items:center; gap:11px; text-decoration:none; font-weight:800; font-size:1.05rem; letter-spacing:-.04em; }
+    .mark { width:28px; height:28px; display:grid; place-items:center; border-radius:9px; color:white; background:linear-gradient(145deg,#6273ee,#8b5cf6); box-shadow:0 6px 16px #5b6de642; font:500 .7rem "DM Mono",monospace; }
+    .nav-links { display:flex; align-items:center; gap:22px; color:#e7ebff; font-size:.82rem; font-weight:700; }
+    .nav-links a { text-decoration:none; }
+    .nav-links a:hover { color:var(--blue); }
+    .nav .github { padding:10px 15px; border:1px solid #bfcaff; border-radius:9px; color:white; background:#ffffff1a; box-shadow:inset 0 0 0 1px #fff1; }
+    .nav .github:hover { background:white; color:#263474; }
+    .languages { display:flex; padding:3px; gap:2px; border:1px solid #aeb9f05e; border-radius:9px; background:#0d143aa8; }
+    .languages button { padding:5px 7px; border:0; border-radius:6px; color:#c8d0f8; background:transparent; font:600 .68rem/1 Manrope,sans-serif; cursor:pointer; }
+    .languages button:hover,.languages button.active { color:#1c2861; background:#fff; }
+    .hero-wrap { background:radial-gradient(ellipse 75% 85% at 80% 8%,#2c3783 0%,#192252 45%,#10183d 100%); color:white; overflow:hidden; }
+    .hero { min-height:620px; display:grid; grid-template-columns:1.04fr .96fr; align-items:center; gap:54px; position:relative; }
+    .hero::after { content:""; position:absolute; width:600px; height:600px; right:-280px; bottom:-370px; border:1px solid #a7b5ff24; border-radius:50%; box-shadow:0 0 0 75px #a7b5ff0b,0 0 0 150px #a7b5ff08; }
+    .hero .eyebrow { color:#bac4ff; }
+    h1 { max-width:670px; margin:0; font-size:clamp(2.7rem,5vw,4.5rem); line-height:1.08; letter-spacing:-.07em; }
+    .hero-copy { max-width:580px; margin:22px 0 30px; color:#d4daf7; font-size:1.08rem; }
+    .actions { display:flex; flex-wrap:wrap; gap:12px; }
+    .button { display:inline-flex; align-items:center; gap:8px; padding:12px 18px; border:1px solid transparent; border-radius:9px; text-decoration:none; font-size:.88rem; font-weight:700; transition:.2s ease; }
+    .button:hover { transform:translateY(-2px); }
+    .button.primary { background:white; color:#273579; box-shadow:0 10px 25px #060b271f; }
+    .button.ghost { border-color:#c6cfffb8; color:white; background:#0e174682; }
+    .scroll-cue { position:absolute; bottom:25px; left:0; display:flex; align-items:center; gap:10px; color:#bfc8ed; font:500 .68rem "DM Mono",monospace; letter-spacing:.08em; }
+    .scroll-cue i { width:21px; height:32px; border:1px solid #bfc8ed9c; border-radius:12px; position:relative; }
+    .scroll-cue i::after { content:""; position:absolute; left:8px; top:6px; width:3px; height:6px; border-radius:4px; background:#dfe5ff; animation:scroll 1.7s infinite; }
+    @keyframes scroll { 0%,100% { transform:translateY(0); opacity:1; } 70% { transform:translateY(12px); opacity:.15; } }
+    .orbit { position:relative; z-index:1; min-height:390px; display:grid; place-items:center; }
+    .plot { width:min(100%,440px); aspect-ratio:1.08; padding:20px; border:1px solid #cbd3ff35; border-radius:22px; background:linear-gradient(140deg,#ffffff1c,#ffffff08); box-shadow:0 26px 50px #05092b45; backdrop-filter:blur(6px); }
+    .plot-top { display:flex; justify-content:space-between; align-items:center; color:#dce1ff; font:400 .68rem "DM Mono",monospace; }
+    .dot { width:8px; height:8px; display:inline-block; margin-right:6px; background:var(--mint); border-radius:50%; box-shadow:0 0 11px #a7f3d0; }
+    .plot svg { width:100%; height:82%; margin-top:11px; overflow:visible; }
+    .plot-label { fill:#bfc8ff; font:11px "DM Mono",monospace; }
+    .mini-card { position:absolute; padding:12px 14px; border:1px solid #ccd5ff3b; border-radius:12px; color:#e9ecff; background:#26316fce; box-shadow:0 12px 25px #090e3440; backdrop-filter:blur(8px); font:500 .68rem "DM Mono",monospace; }
+    .mini-card strong { display:block; margin-top:4px; color:var(--mint); font-size:1.05rem; }
+    .card-a { right:-8px; top:31px; } .card-b { left:-5px; bottom:26px; }
+    section { padding:104px 0; }
+    .intro { display:grid; grid-template-columns:.76fr 1.24fr; gap:82px; border-bottom:1px solid var(--line); }
+    h2 { margin:0; font-size:clamp(2rem,3vw,2.8rem); letter-spacing:-.06em; line-height:1.16; }
+    .intro p { margin:0; color:#526078; font-size:1.07rem; }
+    .projects-head { display:flex; justify-content:space-between; align-items:end; gap:24px; margin-bottom:34px; }
+    .projects-head p { margin:0; max-width:500px; color:var(--muted); }
+    .project-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+    .project { min-height:370px; display:flex; flex-direction:column; padding:26px; border:1px solid var(--line); border-radius:16px; background:white; overflow:hidden; transition:.25s; }
+    .project:hover { transform:translateY(-5px); box-shadow:0 18px 38px #15235b12; border-color:#ccd3f5; }
+    .project-num { color:#8b96a9; font:400 .72rem "DM Mono",monospace; }
+    .project h3 { margin:18px 0 9px; font-size:1.45rem; letter-spacing:-.05em; }
+    .project-icon { width:37px; height:37px; display:grid; place-items:center; margin-top:20px; border-radius:11px; color:#4255d7; background:#eef0ff; }
+    .project-icon svg { width:20px; height:20px; }
+    .project p { margin:0; color:var(--muted); font-size:.9rem; }
+    .project-link { margin-top:auto; padding-top:18px; color:#3446c7; font-size:.84rem; font-weight:800; text-decoration:none; }
+    .project-art { height:85px; margin-top:20px; border-radius:10px; background:#f2f4ff; overflow:hidden; }
+    .project-art img { width:100%; height:100%; object-fit:cover; object-position:center; mix-blend-mode:multiply; }
+    .install { background:#f0f2fb; }
+    .install-grid { display:grid; grid-template-columns:.76fr 1.24fr; gap:84px; align-items:center; }
+    .install p { color:#526078; }
+    pre { margin:0; padding:27px 30px; overflow:auto; border-radius:14px; color:#d9e1ff; background:#151d46; box-shadow:0 17px 35px #19245d25; font:400 .9rem/2 "DM Mono",monospace; }
+    .prompt { color:#94a2ff; }
+    .resources { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+    .resource { display:flex; align-items:center; justify-content:space-between; padding:18px 20px; border:1px solid var(--line); border-radius:12px; background:white; text-decoration:none; font-size:.92rem; font-weight:700; }
+    .resource span { color:#6b7ce4; font-family:"DM Mono",monospace; }
+    .resource:hover { border-color:#aeb9f0; }
+    .playground { display:grid; grid-template-columns:1.15fr .85fr; gap:30px; align-items:center; margin-bottom:72px; padding:38px 42px; overflow:hidden; border-radius:18px; color:white; background:linear-gradient(125deg,#26368d,#6b51c8); position:relative; }
+    .playground::after { content:""; position:absolute; width:300px; height:300px; right:-120px; bottom:-190px; border:1px solid #fff4; border-radius:50%; box-shadow:0 0 0 44px #fff1,0 0 0 88px #fff1; }
+    .playground .eyebrow { color:#cbd3ff; } .playground h2 { max-width:520px; } .playground p { max-width:620px; margin:14px 0 0; color:#e5e8ff; }
+    .playground .button { justify-self:end; position:relative; z-index:1; border-color:#fff8; color:#273579; background:#fff; }
+    .applications { padding-top:0; }
+    .application-years { display:grid; gap:25px; margin-top:36px; }
+    .year-block { padding:25px 28px; border:1px solid var(--line); border-radius:15px; background:white; }
+    .year-title { margin:0 0 15px; color:#4759d9; font:500 .85rem "DM Mono",monospace; letter-spacing:.09em; }
+    .paper-list { display:grid; grid-template-columns:repeat(2,1fr); gap:1px; overflow:hidden; border:1px solid var(--line); border-radius:10px; background:var(--line); }
+    .paper { display:flex; align-items:center; justify-content:space-between; gap:15px; min-height:67px; padding:13px 15px; background:white; text-decoration:none; }
+    .paper:hover { background:#f6f7ff; } .paper strong { display:block; margin-bottom:2px; font-size:.78rem; } .paper span { color:var(--muted); font-size:.8rem; line-height:1.38; } .paper i { flex:none; color:#6273df; font-style:normal; }
+    .cite-grid { display:grid; grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr); gap:20px; margin-top:62px; }
+    .cite-card { min-width:0; padding:28px; border:1px solid var(--line); border-radius:15px; background:white; } .cite-card h3 { margin:0 0 10px; font-size:1.15rem; letter-spacing:-.04em; } .cite-card p { margin:0; color:var(--muted); font-size:.9rem; }
+    .cite-card pre { max-width:100%; margin-top:18px; padding:18px; font-size:.68rem; line-height:1.65; white-space:pre-wrap; overflow-wrap:anywhere; }
+    .patents { padding-bottom:112px; }
+    .patent-strip { display:flex; gap:15px; overflow-x:auto; padding:5px 2px 16px; scroll-snap-type:x mandatory; }
+    .patent { flex:0 0 157px; height:220px; padding:7px; border:1px solid var(--line); border-radius:12px; background:white; scroll-snap-align:start; box-shadow:0 5px 16px #2537640a; }
+    .patent { cursor:zoom-in; }
+    .patent img { width:100%; height:100%; object-fit:contain; }
+    .lightbox { position:fixed; inset:0; z-index:50; display:grid; place-items:center; padding:30px; background:#070b20d9; opacity:0; visibility:hidden; transition:opacity .2s,visibility .2s; cursor:zoom-out; }
+    .lightbox.open { opacity:1; visibility:visible; }
+    .lightbox figure { position:relative; max-width:min(860px,92vw); max-height:88vh; margin:0; cursor:default; }
+    .lightbox img { display:block; max-width:100%; max-height:82vh; border-radius:8px; background:white; box-shadow:0 20px 70px #0009; }
+    .lightbox button { position:absolute; top:-14px; right:-14px; width:34px; height:34px; border:0; border-radius:50%; color:#17204a; background:white; font-size:1.35rem; line-height:1; cursor:pointer; }
+    .lightbox figcaption { margin-top:11px; color:#d9def7; text-align:center; font-size:.8rem; }
+    .contact { padding:80px 0; color:white; background:#151d46; }
+    .contact-inner { display:flex; align-items:center; justify-content:space-between; gap:30px; }
+    .contact h2 { max-width:630px; }
+    .contact p { margin:12px 0 0; color:#bfc8ed; }
+    .contact .button { flex:none; background:white; color:#243171; }
+    footer { padding:22px 0; color:#74809e; background:#101638; font-size:.78rem; }
+    footer .shell { display:flex; justify-content:space-between; gap:15px; }
+    @media (max-width:760px) { .shell { width:min(100% - 32px,1160px); } .nav { height:66px; } .nav-links a:not(.github) { display:none; } .nav .github { display:none; } .languages { margin-left:auto; } .hero { min-height:auto; padding:75px 0 82px; grid-template-columns:1fr; gap:30px; } .orbit { min-height:300px; } .plot { max-width:360px; } .card-a { right:0; } .card-b { left:0; } .scroll-cue { display:none; } section { padding:68px 0; } .intro,.install-grid,.playground,.cite-grid { grid-template-columns:1fr; gap:26px; } .playground { padding:28px; margin-bottom:46px; } .playground .button { justify-self:start; } .projects-head { display:block; } .projects-head p { margin-top:14px; } .project-grid,.paper-list { grid-template-columns:1fr; } .project { min-height:290px; } .resources { grid-template-columns:1fr; } .year-block { padding:20px; } .contact-inner,footer .shell { align-items:flex-start; flex-direction:column; } }
+  </style>
 </head>
 <body>
-
-<header>
-    <h1>Bgolearn - Optimizing Material Design</h1>
-</header>
-
-<nav>
-    <a href="#overview">Overview</a>
-    <a href="#components">Key Components</a>
-    <a href="#install">Installation</a>
-    <a href="#documentation">Documentation</a>
-    <a href="#contact">Contact</a>
-</nav>
-
-<div class="container">
-    <!-- Overview Section -->
-    <section id="overview" class="section">
-        <h2>Overview</h2>
-        <p>Bgolearn is an open-source platform designed to enhance material design through advanced Bayesian optimization techniques. With powerful tools for regression, classification, and multi-objective optimization, Bgolearn empowers researchers and engineers to efficiently explore material properties and design parameters.</p>
-        <a href="https://github.com/Bgolearn" target="_blank">
-        <img src="./png/hpage.png" alt="Bgolearn Video Cover" style="width:140%; border-radius: 8px; max-width: 900px; display: block; margin-left: auto; margin-right: auto;">
-    </section>
-
-    <!-- Key Components Section -->
-    <section id="components" class="section">
-        <h2>Key Components</h2>
-        <div class="features-list">
-            <div class="feature">
-                <h3>Bgolearn</h3>
-                <p>The core module offering powerful regression, classification, and efficiency testing tools. Optimized for material property prediction and analysis.</p>
-                <a href="https://www.bilibili.com/video/BV1Ae411J76z/?spm_id_from=333.337.search-card.all.click" target="_blank">
-                    <img src="./png/bgolearn.png" alt="Watch Bgolearn Intro Video">
-                </a>
-            </div>
-            <div class="feature">
-                <h3>MultiBgolearn</h3>
-                <p>Focuses on multi-objective Bayesian optimization. Enables the simultaneous optimization of multiple objectives, with flexible surrogate model selection.</p>
-                <a href="https://github.com/Bin-Cao/MultiBgolearn" target="_blank">
-                <img src="./png/multibgolearn.png" alt="MultiBgolearn Features">
-            </div>
-            <div class="feature">
-                <h3>BgoFace</h3>
-                <p>A user-friendly graphical interface for interacting with Bgolearn. It simplifies the process of running optimization tasks and visualizing results.</p>
-                <a href="https://www.bilibili.com/video/BV1agYvefEWm/?share_source=copy_web&vd_source=17bffb8d59335e015abf68b5bb37ba28" target="_blank">
-                    <img src="./png/bgoface.png" alt="Watch BgoFace Demo">
-                </a>
-            </div>
+  <div class="hero-wrap">
+    <header class="shell nav">
+      <a class="brand" href="#top"><span class="mark">B</span> Bgolearn</a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#projects" data-i18n="navModules">Modules</a><a href="#documentation" data-i18n="navResources">Resources</a><a href="#patents" data-i18n="navPatents">Patents</a>
+        <a class="github" href="https://github.com/Bin-Cao/Bgolearn" target="_blank" rel="noreferrer">GitHub ↗</a>
+        <div class="languages" aria-label="Language selector"><button class="active" type="button" data-lang="en">EN</button><button type="button" data-lang="zh">中</button><button type="button" data-lang="ja">日</button><button type="button" data-lang="ko">한</button></div>
+      </nav>
+    </header>
+    <main id="top" class="shell hero">
+      <div>
+        <p class="eyebrow" data-i18n="eyebrow">Open-source · Materials Informatics</p>
+        <h1 data-i18n="heroTitle">Make each experiment count.</h1>
+        <p class="hero-copy" data-i18n="heroCopy">A practical Bayesian optimization toolkit for navigating complex material design spaces with fewer, more informed experiments.</p>
+        <div class="actions">
+          <a class="button primary" href="https://github.com/Bin-Cao/Bgolearn" target="_blank" rel="noreferrer"><span data-i18n="github">Explore on GitHub</span> <span>→</span></a>
+          <a class="button ghost" href="#documentation" data-i18n="readDocs">Read the documentation</a>
         </div>
-    </section>
-
-    <!-- Installation Section -->
-    <section id="install" class="section">
-        <h2>Installation</h2>
-        <p>To install Bgolearn and its modules, run the following commands:</p>
-        <pre><code>pip install Bgolearn
-pip install MultiBgolearn</code></pre>
-    </section>
-
-    <!-- Documentation Section -->
-    <section id="documentation" class="section">
-        <h2>Documentation</h2>
-        <ul>
-            <li><a href="https://bgolearn.netlify.app/bgolearn/">Bgolearn Documentation</a></li>
-            <li><a href="https://bgolearn.netlify.app/multibgolearn/">MultiBgolearn Documentation</a></li>
-            <li><a href="https://bgolearn.netlify.app/bgoface/">BgoFace Documentation</a></li>
-        </ul>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="section">
-        <h2>Contact</h2>
-        <p>For more information or support, feel free to reach out:</p>
-        <ul>
-            <li>Email: <a href="mailto:bcao686@connect.hkust-gz.edu.cn">bcao686@connect.hkust-gz.edu.cn</a></li>
-            <li>GitHub: <a href="https://github.com/Bgolearn" target="_blank">Bgolearn GitHub Repository</a></li>
-        </ul>
-    </section>
-
-
-    <!-- Author Section -->
-    <section id="author" class="section">
-        <h2>About the Author</h2>
-        <div class="author-photo" style="text-align: center;">
-            <a href="https://bin-cao.github.io/caobin/about-me" target="_blank">
-                <img src="./png/caobin.png" alt="Caobin" style="width: 400px; border-radius: 8px; margin-bottom: 10px;">
-            </a>
-            <div class="author-info" style="max-width: 700px; margin: 0 auto; text-align: left;">
-                <p>Dr. Bin Cao is deeply passionate about AI-driven computational materials research, with a focus on crystallography structure analysis and Bayesian optimization techniques for material design. He is currently researched with HKUST (GZ). For more details, visit his homepage</p>
-            </div>
+      </div>
+      <div class="scroll-cue" aria-hidden="true"><i></i><span data-i18n="scroll">SCROLL TO DISCOVER</span></div>
+      <div class="orbit" aria-label="Illustration of an optimization landscape">
+        <div class="plot"><div class="plot-top"><span><i class="dot"></i><span data-i18n="optimizationRun">OPTIMIZATION RUN</span></span><span data-i18n="iteration">ITER. 32</span></div>
+          <svg viewBox="0 0 400 250" role="img" aria-label="Bayesian optimization plot">
+            <path d="M12 214H387M12 165H387M12 116H387M12 67H387M12 18H387" stroke="#b7c1ff" opacity=".15"/>
+            <path d="M26 202C62 197 69 132 107 157S149 221 180 151S234 35 265 89S308 187 370 24" fill="none" stroke="#a7f3d0" stroke-width="3"/>
+            <path d="M26 202C62 197 69 132 107 157S149 221 180 151S234 35 265 89S308 187 370 24V230H26Z" fill="url(#shade)" opacity=".65"/>
+            <circle cx="265" cy="89" r="7" fill="#fff"/><circle cx="265" cy="89" r="13" fill="none" stroke="#fff" opacity=".45"/>
+            <text x="274" y="78" class="plot-label" data-i18n="nextSample">NEXT SAMPLE</text><text x="14" y="243" class="plot-label" data-i18n="searchSpace">SEARCH SPACE</text><text x="320" y="243" class="plot-label" data-i18n="objective">OBJECTIVE →</text>
+            <defs><linearGradient id="shade" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#a7f3d0" stop-opacity=".42"/><stop offset="1" stop-color="#a7f3d0" stop-opacity="0"/></linearGradient></defs>
+          </svg>
         </div>
-    </section>
+        <div class="mini-card card-a"><span data-i18n="bestObserved">BEST OBSERVED</span><strong>0.948</strong></div><div class="mini-card card-b"><span data-i18n="experiments">EXPERIMENTS</span><strong>− 64%</strong></div>
+      </div>
+    </main>
+  </div>
 
+  <section class="shell intro" id="overview">
+    <div><p class="eyebrow" data-i18n="focused">A focused toolkit</p><h2 data-i18n="overviewTitle">From hypothesis to better materials.</h2></div>
+    <p data-i18n="overviewCopy">Bgolearn brings regression, classification, and multi-objective Bayesian optimization into one approachable workflow. Built for researchers and engineers who want to explore material properties and process parameters efficiently.</p>
+  </section>
 
-
-
-<section id="patents" class="section">
-    <h2>Obtained Software Patents</h2>
-     <p class="hint">Double-click an image to enlarge, double-click again to restore.</p>
-    <div class="patent-slider">
-        <img src="./png/sc1.png" alt="Patent 1" class="patent-image">
-        <img src="./png/sc2.png" alt="Patent 2" class="patent-image">
-        <img src="./png/Pbgoface.png" alt="Patent 3" class="patent-image">
-        <img src="./png/mgo.png" alt="Patent x" class="patent-image">
-        <img src="./png/bgokit.png" alt="Patent x" class="patent-image">
-        <img src="./png/pt1.png" alt="Patent 2" class="patent-image">
-
-
-
+  <section class="shell" id="projects">
+    <div class="projects-head"><div><p class="eyebrow" data-i18n="ecosystem">The ecosystem</p><h2 data-i18n="projectsTitle">One method. Three ways to work.</h2></div><p data-i18n="projectsCopy">Choose a focused module, or combine them to move from analysis to multi-objective discovery.</p></div>
+    <div class="project-grid">
+      <article class="project"><span class="project-num" data-i18n="core">01 / CORE</span><span class="project-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 18 9 11l3 4 4-7 4 10"/><path d="M4 20h16"/></svg></span><h3>Bgolearn</h3><p data-i18n="bgoDesc">Regression, classification, and efficiency tools for material property prediction and analysis.</p><div class="project-art"><img src="./png/bgolearn1.png" alt="Bgolearn interface preview"></div><a class="project-link" href="https://www.bilibili.com/video/BV1Ae411J76z/" target="_blank" rel="noreferrer" data-i18n="watch">Watch introduction →</a></article>
+      <article class="project"><span class="project-num" data-i18n="multiLabel">02 / MULTI-OBJECTIVE</span><span class="project-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="7" cy="16" r="2"/><circle cx="12" cy="7" r="2"/><circle cx="18" cy="13" r="2"/><path d="m8.7 14.8 2.6-6M13.8 8.3l2.5 3.4"/></svg></span><h3>MultiBgolearn</h3><p data-i18n="multiDesc">Explore several competing objectives at once, with flexible surrogate model selection.</p><div class="project-art"><img src="./png/multibgolearn1.png" alt="MultiBgolearn visualization preview"></div><a class="project-link" href="https://github.com/Bin-Cao/MultiBgolearn" target="_blank" rel="noreferrer" data-i18n="viewProject">View project →</a></article>
+      <article class="project"><span class="project-num" data-i18n="interface">03 / INTERFACE</span><span class="project-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 9h8M8 13h5M8 17h3"/></svg></span><h3>BgoFace</h3><p data-i18n="faceDesc">A visual interface that makes running optimization tasks and reading results more intuitive.</p><div class="project-art"><img src="./png/bgoface1.png" alt="BgoFace interface preview"></div><a class="project-link" href="https://www.bilibili.com/video/BV1agYvefEWm/" target="_blank" rel="noreferrer" data-i18n="watchDemo">Watch demo →</a></article>
     </div>
-</section>
+  </section>
 
-<style>
-    .patent-slider {
-        display: flex;
-        justify-content: flex-start; /* Left align the images */
-        align-items: center;
-        gap: 20px;
-        overflow-x: auto; /* Allows horizontal scrolling */
-        padding: 10px;
-        max-width: 100%; /* Limits the section to the width of the page */
-        margin: 0 auto;
-    }
+  <section class="install"><div class="shell install-grid"><div><p class="eyebrow" data-i18n="getStarted">Get started</p><h2 data-i18n="installTitle">Install in a minute.</h2><p data-i18n="installCopy">Use pip to add the core toolkit or its multi-objective extension to your environment.</p></div><pre><code><span class="prompt">$</span> pip install Bgolearn
+<span class="prompt">$</span> pip install MultiBgolearn</code></pre></div></section>
 
-    .patent-image {
-        max-width: 150px; /* Adjusts image size */
-        height: auto; /* Keeps image aspect ratio */
-        border-radius: 5px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        cursor: pointer; /* Indicates image is clickable */
-        transition: transform 0.3s ease;
-    }
+  <section class="shell" id="documentation">
+    <div class="playground"><div><p class="eyebrow" data-i18n="interactiveLearning">Interactive learning</p><h2 data-i18n="playgroundTitle">Learn Bayesian optimization by playing.</h2><p data-i18n="playgroundCopy">Explore the ideas behind sequential decision-making in an interactive Bayesian optimization game.</p></div><a class="button" href="https://bin-cao.github.io/Bgolearn/" target="_blank" rel="noreferrer" data-i18n="openPlayground">Open Playground ↗</a></div>
+    <div class="projects-head"><div><p class="eyebrow" data-i18n="learnBuild">Learn &amp; build</p><h2 data-i18n="docsTitle">Documentation</h2></div><p data-i18n="resourcesCopy">Research-oriented tools for data-driven materials discovery, experimental design, and virtual screening.</p></div>
+    <div class="resources">
+      <a class="resource" href="https://doi.org/10.1038/s41524-026-02226-3" target="_blank" rel="noreferrer"><span data-i18n="resPaper">Paper · npj Computational Materials</span><span>↗</span></a>
+      <a class="resource" href="https://link.springer.com/chapter/10.1007/978-981-95-6091-2_1" target="_blank" rel="noreferrer"><span data-i18n="resBook">Book chapter · Bayesian Global Optimization</span><span>↗</span></a>
+      <a class="resource" href="https://bgolearn.netlify.app/" target="_blank" rel="noreferrer"><span data-i18n="resManual">Manual · Bgolearn documentation</span><span>↗</span></a>
+      <a class="resource" href="https://www.bilibili.com/video/BV1LTtLeaEZp" target="_blank" rel="noreferrer"><span data-i18n="resVideo">Video tutorial · Bilibili</span><span>↗</span></a>
+      <a class="resource" href="https://cmc2025.scimeeting.cn/cn/web/xue-shu-xin/27167?abstract_id=3726842" target="_blank" rel="noreferrer"><span data-i18n="resConference">Conference report · CMC 2025</span><span>↗</span></a>
+      <a class="resource" href="https://github.com/Bin-Cao/MultiBgolearn" target="_blank" rel="noreferrer"><span data-i18n="resMulti">Multi-objective module · MultiBgolearn</span><span>↗</span></a>
+      <a class="resource" href="https://github.com/Bgolearn/BgoFace" target="_blank" rel="noreferrer"><span data-i18n="resGui">Official GUI · BgoFace</span><span>↗</span></a>
+      <a class="resource" href="https://github.com/Bgolearn/CodeDemo" target="_blank" rel="noreferrer"><span data-i18n="resDemo">Example code &amp; data · CodeDemo</span><span>↗</span></a>
+    </div>
+  </section>
 
-    /* Fullscreen style for the image with size restrictions */
-    .fullscreen {
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%) scale(1); /* Center the image */
-        max-width: 80vw; /* Limits the max width to 80% of the viewport width */
-        max-height: 80vh; /* Limits the max height to 80% of the viewport height */
-        z-index: 9999; /* Ensure the image is on top of everything */
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Add stronger shadow */
-    }
+  <section class="shell applications" id="applications"><div class="projects-head"><div><p class="eyebrow" data-i18n="representativeApplications">Representative applications</p><h2 data-i18n="applicationsTitle">Used where every experiment matters.</h2></div><p data-i18n="applicationsCopy">Bgolearn has supported a growing set of materials science and engineering studies.</p></div>
+    <div class="application-years">
+      <div class="year-block"><h3 class="year-title">2026</h3><div class="paper-list">
+        <a class="paper" href="https://www.sciencedirect.com/science/article/pii/S2468023026013799" target="_blank" rel="noreferrer"><div><strong>Surfaces and Interfaces</strong><span>Photochemical synthesis of WS₂ thin films</span></div><i>↗</i></a>
+        <a class="paper" href="https://iopscience.iop.org/article/10.1088/2515-7639/ae44d1/meta" target="_blank" rel="noreferrer"><div><strong>JPhys Materials</strong><span>Design of TaNbMoVW refractory high-entropy alloys</span></div><i>↗</i></a>
+        <a class="paper" href="https://pubs.rsc.org/sc/article/17/22/11114/1231470/A-dual-mode-large-language-model-assistant-for-on" target="_blank" rel="noreferrer"><div><strong>Chemical Science</strong><span>Optimizing on-surface reactions</span></div><i>↗</i></a>
+        <a class="paper" href="https://link.springer.com/chapter/10.1007/978-981-95-6091-2_1" target="_blank" rel="noreferrer"><div><strong>Springer Nature</strong><span>Book chapter: Bayesian Global Optimization</span></div><i>↗</i></a>
+        <a class="paper" href="https://www.oaepublish.com/articles/jmi.2025.78" target="_blank" rel="noreferrer"><div><strong>Journal of Materials Informatics</strong><span>Optimizing SciBERT hyperparameters</span></div><i>↗</i></a>
+        <a class="paper" href="https://www.sciencedirect.com/science/article/pii/S2095927325012678" target="_blank" rel="noreferrer"><div><strong>Science Bulletin</strong><span>Discovering ultra-durable and highly active catalysts</span></div><i>↗</i></a>
+        <a class="paper" href="https://onlinelibrary.wiley.com/doi/pdf/10.1002/agt2.70307" target="_blank" rel="noreferrer"><div><strong>Aggregate</strong><span>Discovering G-quadruplex luminescence materials</span></div><i>↗</i></a>
+        <a class="paper" href="https://www.sciencedirect.com/science/article/pii/S1369800126005263" target="_blank" rel="noreferrer"><div><strong>Materials Science in Semiconductor Processing</strong><span>Hf-doped p-type MoS₂ via pulsed-laser synthesis</span></div><i>↗</i></a>
+      </div></div>
+      <div class="year-block"><h3 class="year-title">2025</h3><div class="paper-list">
+        <a class="paper" href="https://pubs.acs.org/doi/pdf/10.1021/acs.nanolett.5c02445" target="_blank" rel="noreferrer"><div><strong>Nano Letters</strong><span>Self-driving laboratory under UHV</span></div><i>↗</i></a>
+        <a class="paper" href="https://onlinelibrary.wiley.com/doi/10.1002/smll.202408750" target="_blank" rel="noreferrer"><div><strong>Small</strong><span>ML-engineered nanozyme system for anti-tumor therapy</span></div><i>↗</i></a>
+        <a class="paper" href="https://www.sciencedirect.com/science/article/pii/S0927025625000084" target="_blank" rel="noreferrer"><div><strong>Computational Materials Science</strong><span>Mg-Ca-Zn alloy optimization</span></div><i>↗</i></a>
+        <a class="paper" href="https://www.sciencedirect.com/science/article/pii/S0263224124013940" target="_blank" rel="noreferrer"><div><strong>Measurement</strong><span>Foaming agent optimization in EPB shield construction</span></div><i>↗</i></a>
+        <a class="paper" href="https://spj.science.org/doi/pdf/10.34133/icomputing.0135" target="_blank" rel="noreferrer"><div><strong>Intelligent Computing</strong><span>Metasurface design via Bayesian learning</span></div><i>↗</i></a>
+      </div></div>
+      <div class="year-block"><h3 class="year-title">2024</h3><div class="paper-list">
+        <a class="paper" href="https://www.sciencedirect.com/science/article/pii/S0264127524002946" target="_blank" rel="noreferrer"><div><strong>Materials &amp; Design</strong><span>Lead-free solder alloys via active learning</span></div><i>↗</i></a>
+        <a class="paper" href="https://www.nature.com/articles/s41524-024-01243-4" target="_blank" rel="noreferrer"><div><strong>npj Computational Materials</strong><span>MLMD platform with Bgolearn backend</span></div><i>↗</i></a>
+      </div></div>
+    </div>
+    <div class="cite-grid"><article class="cite-card"><h3 data-i18n="citeTitle">If Bgolearn supports your research, please cite</h3><pre><code>@article{Cao2026Bgolearn,
+  author = {Bin Cao and Jie Xiong and Jiaxuan Ma and Yuan Tian and Yirui Hu and Mengwei He and Longhan Zhang and Jiayu Wang and Jian Hui and Li Liu and Dezhen Xue and Turab Lookman and Jun Wang and Tong-Yi Zhang},
+  title = {Bgolearn: a unified Bayesian optimization framework for accelerating materials discovery},
+  journal = {npj Computational Materials}, year = {2026},
+  doi = {10.1038/s41524-026-02226-3}, url = {https://doi.org/10.1038/s41524-026-02226-3}
+}</code></pre></article><article class="cite-card"><h3 data-i18n="fundingTitle">Funding</h3><p><strong>Bgolearn</strong> <span data-i18n="fundingCopy">was selected for the Open-Source Artificial Intelligence Support Program (2025), supported by the Shanghai Municipal Commission of Economy and Informatization.</span> <a href="https://www.sheitc.sh.gov.cn/cyfz/20250728/e571042d40384fcf859a347eb99e10df.html" target="_blank" rel="noreferrer" data-i18n="readAnnouncement">Read announcement →</a></p></article></div>
+  </section>
 
-    /* Adds smooth scrolling */
-    .patent-slider {
-        scroll-behavior: smooth;
-    }
-</style>
+  <section class="shell patents" id="patents"><p class="eyebrow" data-i18n="recognition">Recognition</p><h2 data-i18n="patentsTitle">Software patents</h2><div class="patent-strip" aria-label="Software patent certificates"><div class="patent"><img src="./png/sc1.png" alt="Software patent certificate 1"></div><div class="patent"><img src="./png/sc2.png" alt="Software patent certificate 2"></div><div class="patent"><img src="./png/Pbgoface.png" alt="BgoFace patent certificate"></div><div class="patent"><img src="./png/mgo.png" alt="MultiBgolearn patent certificate"></div><div class="patent"><img src="./png/bgokit.png" alt="Bgokit patent certificate"></div><div class="patent"><img src="./png/pt1.png" alt="Software patent certificate"></div></div></section>
 
-<script>
-    document.querySelectorAll('.patent-image').forEach(image => {
-        image.addEventListener('dblclick', () => {
-            if (image.classList.contains('fullscreen')) {
-                image.classList.remove('fullscreen'); // Remove fullscreen on second double click
-            } else {
-                document.querySelectorAll('.fullscreen').forEach(full => full.classList.remove('fullscreen')); // Ensure only one image is fullscreen at a time
-                image.classList.add('fullscreen'); // Set image to fullscreen on double click
-            }
-        });
-    });
-</script>
+  <section class="shell intro" id="author"><div><p class="eyebrow" data-i18n="creator">Creator</p><h2>Dr. Bin Cao<br>曹斌</h2></div><p><span data-i18n="authorCopy">Research Scientist working at the intersection of AI and materials science, with a focus on crystallography, graph representation learning, and Bayesian optimization.</span> <a href="https://bin-cao.github.io/" target="_blank" rel="noreferrer" data-i18n="authorLink">Visit Bin Cao’s personal website →</a></p></section>
 
+  <section class="contact"><div class="shell contact-inner"><div><p class="eyebrow" data-i18n="contactEyebrow">Questions or collaboration</p><h2 data-i18n="contactTitle">Build the next materials discovery workflow.</h2><p data-i18n="contactCopy">For project details and support, get in touch with Dr. Bin Cao.</p></div><a class="button" href="mailto:bcao686@connect.hkust-gz.edu.cn" data-i18n="contactButton">Contact by email →</a></div></section>
+  <footer><div class="shell"><span data-i18n="footer">© 2026 Bgolearn. MIT License.</span><a href="https://bin-cao.github.io/" target="_blank" rel="noreferrer" data-i18n="footerLink">Bin Cao’s homepage ↗</a></div></footer>
+  <div class="lightbox" id="patent-lightbox" aria-hidden="true"><figure><button type="button" aria-label="Close preview">×</button><img src="" alt=""><figcaption data-i18n="closeHint">Double-click anywhere outside the certificate, or use × / Esc to close.</figcaption></figure></div>
+  <script>
+    const translations = {
+      en: { navModules:'Modules', navResources:'Resources', navPatents:'Patents', eyebrow:'Open-source · Materials Informatics', heroTitle:'Make each experiment count.', heroCopy:'A practical Bayesian optimization toolkit for navigating complex material design spaces with fewer, more informed experiments.', github:'Explore on GitHub', readDocs:'Read the documentation', scroll:'SCROLL TO DISCOVER', focused:'A focused toolkit', overviewTitle:'From hypothesis to better materials.', overviewCopy:'Bgolearn brings regression, classification, and multi-objective Bayesian optimization into one approachable workflow. Built for researchers and engineers who want to explore material properties and process parameters efficiently.', ecosystem:'The ecosystem', projectsTitle:'One method. Three ways to work.', projectsCopy:'Choose a focused module, or combine them to move from analysis to multi-objective discovery.', bgoDesc:'Regression, classification, and efficiency tools for material property prediction and analysis.', multiDesc:'Explore several competing objectives at once, with flexible surrogate model selection.', faceDesc:'A visual interface that makes running optimization tasks and reading results more intuitive.', watch:'Watch introduction →', viewProject:'View project →', watchDemo:'Watch demo →', getStarted:'Get started', installTitle:'Install in a minute.', installCopy:'Use pip to add the core toolkit or its multi-objective extension to your environment.' },
+      zh: { navModules:'核心模块', navResources:'资源', navPatents:'软件专利', eyebrow:'开源 · 材料信息学', heroTitle:'让每一次实验都更有价值。', heroCopy:'面向材料设计的实用贝叶斯优化工具包，以更少、更明智的实验探索复杂设计空间。', github:'在 GitHub 上探索', readDocs:'阅读文档', scroll:'向下探索', focused:'专注的工具集', overviewTitle:'从假设出发，发现更优材料。', overviewCopy:'Bgolearn 将回归、分类和多目标贝叶斯优化融入易用的工作流，帮助研究人员与工程师高效探索材料性质和工艺参数。', ecosystem:'产品生态', projectsTitle:'一种方法，三种工作方式。', projectsCopy:'选择专用模块，或将它们组合起来，从分析走向多目标材料发现。', bgoDesc:'用于材料性质预测与分析的回归、分类和效率评估工具。', multiDesc:'同时探索多个相互竞争的目标，并灵活选择代理模型。', faceDesc:'直观的可视化界面，便于运行优化任务和解读结果。', watch:'观看介绍 →', viewProject:'查看项目 →', watchDemo:'观看演示 →', getStarted:'快速开始', installTitle:'一分钟完成安装。', installCopy:'使用 pip 将核心工具包或多目标扩展加入你的环境。' },
+      ja: { navModules:'モジュール', navResources:'リソース', navPatents:'特許', eyebrow:'オープンソース · マテリアルズ・インフォマティクス', heroTitle:'すべての実験を、より価値あるものに。', heroCopy:'少ない実験で複雑な材料設計空間を効率的に探索する、実用的なベイズ最適化ツールキットです。', github:'GitHub で見る', readDocs:'ドキュメントを読む', scroll:'スクロールして見る', focused:'焦点を絞ったツールキット', overviewTitle:'仮説から、より良い材料へ。', overviewCopy:'Bgolearn は回帰、分類、多目的ベイズ最適化を使いやすいワークフローに統合し、材料特性とプロセス条件の効率的な探索を支援します。', ecosystem:'エコシステム', projectsTitle:'一つの手法、三つの使い方。', projectsCopy:'専用モジュールを選ぶか、組み合わせて解析から多目的探索まで進められます。', bgoDesc:'材料特性の予測と解析のための回帰・分類・効率評価ツール。', multiDesc:'柔軟な代理モデル選択で、複数の競合する目的を同時に探索します。', faceDesc:'最適化の実行と結果の読解を直感的にする視覚的インターフェース。', watch:'紹介を見る →', viewProject:'プロジェクトを見る →', watchDemo:'デモを見る →', getStarted:'始める', installTitle:'1分でインストール。', installCopy:'pip を使ってコアツールキットまたは多目的拡張を環境に追加します。' },
+      ko: { navModules:'모듈', navResources:'리소스', navPatents:'소프트웨어 특허', eyebrow:'오픈소스 · 재료정보학', heroTitle:'모든 실험을 더 가치 있게.', heroCopy:'더 적고 정확한 실험으로 복잡한 재료 설계 공간을 탐색하는 실용적인 베이지안 최적화 도구입니다.', github:'GitHub에서 보기', readDocs:'문서 읽기', scroll:'아래로 탐색하기', focused:'집중형 툴킷', overviewTitle:'가설에서 더 나은 재료로.', overviewCopy:'Bgolearn은 회귀, 분류, 다목적 베이지안 최적화를 하나의 쉬운 워크플로로 제공하여 재료 특성과 공정 변수 탐색을 돕습니다.', ecosystem:'생태계', projectsTitle:'하나의 방법, 세 가지 방식.', projectsCopy:'특화 모듈을 선택하거나 결합하여 분석에서 다목적 재료 발견까지 이어가세요.', bgoDesc:'재료 특성 예측과 분석을 위한 회귀, 분류 및 효율성 도구.', multiDesc:'유연한 대리 모델 선택으로 여러 상충 목표를 동시에 탐색합니다.', faceDesc:'최적화 작업 실행과 결과 해석을 직관적으로 돕는 시각적 인터페이스.', watch:'소개 보기 →', viewProject:'프로젝트 보기 →', watchDemo:'데모 보기 →', getStarted:'시작하기', installTitle:'1분 안에 설치하세요.', installCopy:'pip으로 핵심 툴킷 또는 다목적 확장을 환경에 추가합니다.' }
+    };
+    const extraTranslations = {
+      en: { nextSample:'NEXT SAMPLE', searchSpace:'SEARCH SPACE', objective:'OBJECTIVE →', bestObserved:'BEST OBSERVED', experiments:'EXPERIMENTS', core:'01 / CORE', multiLabel:'02 / MULTI-OBJECTIVE', interface:'03 / INTERFACE', learnBuild:'Learn & build', docsTitle:'Documentation', docsCopy:'Guides and references for getting the most from Bgolearn.', bgoDocs:'Bgolearn documentation', researchArticles:'Research articles citing Bgolearn', recognition:'Recognition', patentsTitle:'Software patents', creator:'Creator', authorCopy:'Research Scientist working at the intersection of AI and materials science, with a focus on crystallography, graph representation learning, and Bayesian optimization.', authorLink:'Visit Bin Cao’s personal website →', contactEyebrow:'Questions or collaboration', contactTitle:'Build the next materials discovery workflow.', contactCopy:'For project details and support, get in touch with Dr. Bin Cao.', contactButton:'Contact by email →', footer:'© 2026 Bgolearn. MIT License.', footerLink:'Bin Cao’s homepage ↗', closeHint:'Double-click anywhere outside the certificate, or use × / Esc to close.' },
+      zh: { nextSample:'下一采样点', searchSpace:'搜索空间', objective:'目标 →', bestObserved:'当前最优', experiments:'实验次数', core:'01 / 核心', multiLabel:'02 / 多目标', interface:'03 / 界面', learnBuild:'学习与构建', docsTitle:'文档', docsCopy:'帮助你充分使用 Bgolearn 的指南与参考资料。', bgoDocs:'Bgolearn 文档', researchArticles:'引用 Bgolearn 的研究论文', recognition:'成果与认可', patentsTitle:'软件专利', creator:'创建者', authorCopy:'从事人工智能与材料科学交叉研究的科学家，研究方向包括晶体学、图表示学习与贝叶斯优化。', authorLink:'访问曹斌的个人主页 →', contactEyebrow:'问题或合作', contactTitle:'构建下一代材料发现工作流。', contactCopy:'如需项目详情或技术支持，欢迎联系曹斌博士。', contactButton:'邮件联系 →', footer:'© 2026 Bgolearn。MIT 许可证。', footerLink:'曹斌的个人主页 ↗', closeHint:'双击证书外的空白处，或使用 × / Esc 关闭。' },
+      ja: { nextSample:'次のサンプル', searchSpace:'探索空間', objective:'目的 →', bestObserved:'最良値', experiments:'実験数', core:'01 / コア', multiLabel:'02 / 多目的', interface:'03 / インターフェース', learnBuild:'学習と構築', docsTitle:'ドキュメント', docsCopy:'Bgolearn を最大限に活用するためのガイドとリファレンスです。', bgoDocs:'Bgolearn ドキュメント', researchArticles:'Bgolearn を引用した研究論文', recognition:'実績と評価', patentsTitle:'ソフトウェア特許', creator:'開発者', authorCopy:'AI と材料科学の交差領域で研究する研究者。結晶学、グラフ表現学習、ベイズ最適化を専門としています。', authorLink:'Bin Cao の個人サイトを見る →', contactEyebrow:'お問い合わせ・共同研究', contactTitle:'次世代の材料探索ワークフローを、ともに。', contactCopy:'プロジェクトの詳細やサポートについては、Bin Cao 博士までお問い合わせください。', contactButton:'メールで問い合わせる →', footer:'© 2026 Bgolearn. MIT ライセンス。', footerLink:'Bin Cao の個人サイト ↗', closeHint:'証明書の外側をダブルクリックするか、× / Esc で閉じます。' },
+      ko: { nextSample:'다음 샘플', searchSpace:'탐색 공간', objective:'목표 →', bestObserved:'최고 관측값', experiments:'실험 수', core:'01 / 핵심', multiLabel:'02 / 다목적', interface:'03 / 인터페이스', learnBuild:'학습 및 개발', docsTitle:'문서', docsCopy:'Bgolearn을 최대한 활용하기 위한 가이드와 참고 자료입니다.', bgoDocs:'Bgolearn 문서', researchArticles:'Bgolearn 인용 연구 논문', recognition:'성과 및 인정', patentsTitle:'소프트웨어 특허', creator:'개발자', authorCopy:'AI와 재료과학의 접점에서 연구하며 결정학, 그래프 표현 학습, 베이지안 최적화에 집중하고 있습니다.', authorLink:'Bin Cao 개인 웹사이트 방문 →', contactEyebrow:'문의 및 협업', contactTitle:'차세대 재료 발견 워크플로를 구축하세요.', contactCopy:'프로젝트 상세 정보와 지원은 Bin Cao 박사에게 문의해 주세요.', contactButton:'이메일 문의 →', footer:'© 2026 Bgolearn. MIT 라이선스.', footerLink:'Bin Cao 개인 웹사이트 ↗', closeHint:'인증서 밖을 더블클릭하거나 × / Esc를 눌러 닫으세요.' }
+    };
+    Object.assign(extraTranslations.en, { optimizationRun:'OPTIMIZATION RUN', iteration:'ITER. 32' });
+    Object.assign(extraTranslations.zh, { optimizationRun:'优化运行', iteration:'迭代 32' });
+    Object.assign(extraTranslations.ja, { optimizationRun:'最適化実行中', iteration:'反復 32' });
+    Object.assign(extraTranslations.ko, { optimizationRun:'최적화 실행', iteration:'반복 32' });
+    Object.assign(extraTranslations.en, { interactiveLearning:'Interactive learning', playgroundTitle:'Learn Bayesian optimization by playing.', playgroundCopy:'Explore the ideas behind sequential decision-making in an interactive Bayesian optimization game.', openPlayground:'Open Playground ↗', resourcesCopy:'Research-oriented tools for data-driven materials discovery, experimental design, and virtual screening.', resPaper:'Paper · npj Computational Materials', resBook:'Book chapter · Bayesian Global Optimization', resManual:'Manual · Bgolearn documentation', resVideo:'Video tutorial · Bilibili', resConference:'Conference report · CMC 2025', resMulti:'Multi-objective module · MultiBgolearn', resGui:'Official GUI · BgoFace', resDemo:'Example code & data · CodeDemo', representativeApplications:'Representative applications', applicationsTitle:'Used where every experiment matters.', applicationsCopy:'Bgolearn has supported a growing set of materials science and engineering studies.', citeTitle:'If Bgolearn supports your research, please cite', fundingTitle:'Funding', fundingCopy:'was selected for the Open-Source Artificial Intelligence Support Program (2025), supported by the Shanghai Municipal Commission of Economy and Informatization.', readAnnouncement:'Read announcement →' });
+    Object.assign(extraTranslations.zh, { interactiveLearning:'互动学习', playgroundTitle:'在游戏中学习贝叶斯优化。', playgroundCopy:'通过交互式贝叶斯优化游戏，探索序贯决策背后的核心思想。', openPlayground:'打开 Playground ↗', resourcesCopy:'面向数据驱动材料发现、实验设计和虚拟筛选的研究型工具。', resPaper:'论文 · npj Computational Materials', resBook:'书籍章节 · 贝叶斯全局优化', resManual:'手册 · Bgolearn 文档', resVideo:'视频教程 · Bilibili', resConference:'会议报告 · CMC 2025', resMulti:'多目标模块 · MultiBgolearn', resGui:'官方图形界面 · BgoFace', resDemo:'示例代码与数据 · CodeDemo', representativeApplications:'代表性应用', applicationsTitle:'用在每一次实验都至关重要的地方。', applicationsCopy:'Bgolearn 已支持一系列材料科学与工程研究。', citeTitle:'如果 Bgolearn 对您的研究有所帮助，请引用', fundingTitle:'项目资助', fundingCopy:'入选上海市经济和信息化委员会支持的“开源人工智能支持计划（2025）”。', readAnnouncement:'查看公告 →' });
+    Object.assign(extraTranslations.ja, { interactiveLearning:'インタラクティブ学習', playgroundTitle:'遊びながらベイズ最適化を学ぶ。', playgroundCopy:'対話型ベイズ最適化ゲームで、逐次意思決定の考え方を探ります。', openPlayground:'Playground を開く ↗', resourcesCopy:'データ駆動型材料探索、実験設計、仮想スクリーニングのための研究用ツールです。', resPaper:'論文 · npj Computational Materials', resBook:'書籍章 · ベイズ全体最適化', resManual:'マニュアル · Bgolearn ドキュメント', resVideo:'動画チュートリアル · Bilibili', resConference:'学会報告 · CMC 2025', resMulti:'多目的モジュール · MultiBgolearn', resGui:'公式 GUI · BgoFace', resDemo:'サンプルコードとデータ · CodeDemo', representativeApplications:'代表的な応用', applicationsTitle:'すべての実験が重要な場面で。', applicationsCopy:'Bgolearn は材料科学・工学における多くの研究を支援しています。', citeTitle:'研究で Bgolearn を使用した場合は、以下を引用してください', fundingTitle:'資金支援', fundingCopy:'上海市経済情報化委員会が支援するオープンソース AI 支援プログラム（2025）に選定されました。', readAnnouncement:'お知らせを読む →' });
+    Object.assign(extraTranslations.ko, { interactiveLearning:'인터랙티브 학습', playgroundTitle:'게임으로 베이지안 최적화를 배우세요.', playgroundCopy:'인터랙티브 베이지안 최적화 게임으로 순차적 의사결정의 핵심 개념을 살펴보세요.', openPlayground:'Playground 열기 ↗', resourcesCopy:'데이터 기반 재료 발견, 실험 설계 및 가상 스크리닝을 위한 연구 도구입니다.', resPaper:'논문 · npj Computational Materials', resBook:'도서 챕터 · 베이지안 전역 최적화', resManual:'매뉴얼 · Bgolearn 문서', resVideo:'비디오 튜토리얼 · Bilibili', resConference:'학회 보고서 · CMC 2025', resMulti:'다목적 모듈 · MultiBgolearn', resGui:'공식 GUI · BgoFace', resDemo:'예제 코드 및 데이터 · CodeDemo', representativeApplications:'대표 응용 사례', applicationsTitle:'모든 실험이 중요한 곳에서 사용됩니다.', applicationsCopy:'Bgolearn은 점점 더 많은 재료과학 및 공학 연구를 지원하고 있습니다.', citeTitle:'연구에 Bgolearn을 활용했다면 다음을 인용해 주세요', fundingTitle:'연구 지원', fundingCopy:'상하이시 경제정보화위원회가 지원하는 오픈소스 인공지능 지원 프로그램(2025)에 선정되었습니다.', readAnnouncement:'공지 보기 →' });
+    const setLanguage = lang => {
+      document.documentElement.lang = lang === 'zh' ? 'zh-CN' : lang;
+      document.querySelectorAll('[data-i18n]').forEach(node => { node.textContent = translations[lang][node.dataset.i18n] || extraTranslations[lang][node.dataset.i18n] || node.textContent; });
+      document.querySelectorAll('[data-lang]').forEach(button => button.classList.toggle('active', button.dataset.lang === lang));
+      localStorage.setItem('bgolearn-language', lang);
+    };
+    document.querySelectorAll('[data-lang]').forEach(button => button.addEventListener('click', () => setLanguage(button.dataset.lang)));
+    setLanguage(localStorage.getItem('bgolearn-language') || 'en');
 
-
-    <!-- Research Articles Section -->
-    <section id="research" class="section">
-        <h2>Research Articles Using Bgolearn</h2>
-        <p>Bgolearn has been applied in various research studies focused on material design and optimization. Explore the research articles that cite Bgolearn:</p>
-        <p style="text-align: center;">
-            <a href="https://scholar.google.com/scholar?hl=zh-CN&as_sdt=2005&sciodt=0%2C5&cites=10043314866376349479&scipsc=&q=Bgolearn&btnG=" target="_blank" style="font-size: 18px; color: #007BFF; text-decoration: underline;">
-                View Research Articles on Google Scholar
-            </a>
-        </p>
-    </section>
-
-</div>
-
-
-
-
-<footer>
-    <p>&copy; 2024 Bgolearn. All rights reserved. | Licensed under the <a href="https://github.com/Bin-Cao/Bgolearn/blob/main/LICENSE" target="_blank">MIT License</a>.</p>
-</footer>
-
+    const lightbox = document.getElementById('patent-lightbox');
+    const preview = lightbox.querySelector('img');
+    const closePreview = () => { lightbox.classList.remove('open'); lightbox.setAttribute('aria-hidden', 'true'); };
+    document.querySelectorAll('.patent img').forEach(image => image.addEventListener('dblclick', () => {
+      preview.src = image.src; preview.alt = image.alt; lightbox.classList.add('open'); lightbox.setAttribute('aria-hidden', 'false');
+    }));
+    lightbox.addEventListener('dblclick', event => { if (event.target === lightbox) closePreview(); });
+    lightbox.querySelector('button').addEventListener('click', closePreview);
+    document.addEventListener('keydown', event => { if (event.key === 'Escape') closePreview(); });
+  </script>
 </body>
 </html>
